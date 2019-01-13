@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+        <div class="container">
+        
+            <div id="content">
+
+
+            </div>
+
+        </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+    var travel = [
+    {
+      "naam": "Strandvakantie Costa del sol",
+      "prijs": "4600",
+      "typeReis": "Strand",
+      "locatie": "Spanje",
+      "voorzien": ['airco','all-in','minibar']
+    },
+    {
+      "naam": "Skivakantie Franse Alpen",
+      "prijs": "3500",
+      "typeReis": "Winter",
+      "locatie": "Frankrijk",
+      "voorzien": ['airco','all-in','minibar']
+    },
+    {
+      "naam": "Skivakantie Zwitserland",
+      "prijs": "3800",
+      "typeReis": "Winter",
+      "locatie": "Zwitserland",
+      "voorzien": ['airco','all-in','minibar']
+    },
+    {
+      "naam": "Roadtrip California",
+      "prijs": "8000",
+      "typeReis": "Auto",
+      "locatie": "USA",
+      "voorzien": ['airco','all-in','minibar']
+    },
+    {
+      "naam": "Grexit tour",
+      "prijs": "0",
+      "typeReis": "Strand",
+      "locatie": "Griekenland",
+      "voorzien": ['airco','all-in','minibar']
+    },
+    {
+      "naam": "Autovakantie Finland",
+      "prijs": "8000",
+      "typeReis": "Auto",
+      "locatie": "Finland",
+      "voorzien": ['airco','all-in','minibar']
+    }
+  ]
+var content = document.getElementById("content");
+var icoontje;
+console.log(travel);
+travel.forEach(function(item) {
+console.log(item.naam);
+if (item.typeReis == "Auto") {
+    icoontje = "<i class='material-icons' style='font-size:60px;color:blue'>directions_car</i>";
+} else if (item.typeReis =="Strand") {
+    icoontje = "<i class='material-icons' style='font-size:60px;color:red'>wb_sunny</i>";
+} else {
+    icoontje = "<i class='material-icons' style='font-size:60px;color:green'>cloud</i>";
+}
+content.innerHTML += "<div class='row'>"+
+                                 "<div class='col-md-3'>"+icoontje+"</div>"+
+                                 "<div class='col-md-3'><h4>"+item.naam+"</h4></div>"+
+                                 "<div class='col-md-3'><span class='btn btn-info'>€ "+item.prijs+"</span></div>"+
+                                 "<div class='col-md-3'>"+item.locatie+"</div>"+
+                                 "</div>";
+
+          item.voorzien.forEach(function(itemvoorzien) {
+          console.log(itemvoorzien);
+          content.innerHTML += "<li>"+itemvoorzien+"</li>"
+          });
+          content.innerHTML +="<hr>"
+  });
+    </script>
+  </body>
+</html>
